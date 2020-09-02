@@ -32,26 +32,26 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
     }
 
-    @ExceptionHandler(ProdutoNaoEncontradoException.class)
-    public ResponseEntity<?> handleProdutoNaoEncontrado(ProdutoNaoEncontradoException ex, WebRequest webRequest){
+    @ExceptionHandler(EntidadeNaoEncontradoException.class)
+    public ResponseEntity<?> handleProdutoNaoEncontrado(EntidadeNaoEncontradoException ex, WebRequest webRequest){
 
         HttpStatus status = HttpStatus.NOT_FOUND;
 
         ex.printStackTrace();
 
-        Problem problem = problemBuilder("Produto não encontrado",status,ex.getMessage()).build();
+        Problem problem = problemBuilder("Entidade não encontrado",status,ex.getMessage()).build();
 
         return handleExceptionInternal(ex, problem, new HttpHeaders(), status, webRequest);
     }
 
-    @ExceptionHandler(ProdutoCadastradoException.class)
-    public ResponseEntity<?> handleProdutoCadastrado(ProdutoCadastradoException ex, WebRequest webRequest) {
+    @ExceptionHandler(EntidadeCadastradoException.class)
+    public ResponseEntity<?> handleProdutoCadastrado(EntidadeCadastradoException ex, WebRequest webRequest) {
 
-        HttpStatus status = HttpStatus.BAD_REQUEST;
+        HttpStatus status = HttpStatus.CONFLICT;
 
         ex.printStackTrace();
 
-        Problem problem = problemBuilder("Produto já cadastrado",status,ex.getMessage()).build();
+        Problem problem = problemBuilder("Entidade já cadastrado",status,ex.getMessage()).build();
 
         return handleExceptionInternal(ex, problem, new HttpHeaders(), status, webRequest);
 
