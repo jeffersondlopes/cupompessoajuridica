@@ -2,11 +2,13 @@ package br.com.cupom.api.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 
 @Data
+@JacksonXmlRootElement(localName = "pessoaJuridica")
 public class PessoaJuridicaModel {
 
     @JsonProperty("CNPJ")

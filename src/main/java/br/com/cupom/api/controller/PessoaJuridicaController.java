@@ -1,6 +1,6 @@
 package br.com.cupom.api.controller;
 
-import br.com.cupom.api.assembler.PessoaJuridicaInputDissambler;
+import br.com.cupom.api.assembler.PessoaInputDissambler;
 import br.com.cupom.api.model.PessoaJuridicaModel;
 import br.com.cupom.model.PessoaJuridica;
 import br.com.cupom.service.PessoaJuridicaService;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("pessoaJur")
+@RequestMapping("pess_jur")
 public class PessoaJuridicaController {
 
     @Autowired
-    private PessoaJuridicaInputDissambler pJInputDissambler;
+    private PessoaInputDissambler pJInputDissambler;
 
     @Autowired
     private PessoaJuridicaService pJService;
